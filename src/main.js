@@ -2,7 +2,6 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import FastClick from 'fastclick'
-// import VueRouter from 'vue-router'
 import App from './App'
 // import VueScroller from 'vue-scroller'
 import './assets/style/iconfont.css'
@@ -10,8 +9,52 @@ import './assets/style/globle.css'
 import api_v1 from "./assets/api/v1.js"
 import axios from './assets/utils/http.js'
 import router from './router/index.js'
-import  { ToastPlugin } from 'vux'
-Vue.use(ToastPlugin)
+
+import {
+    Actionsheet, XInput, XButton, Grid, GridItem, XTable, LoadMore, Icon, XCircle, Group, Flexbox,
+    XImg, Alert, Toast, XDialog, ButtonTab, Tabbar, TabbarItem, Divider, Confirm, Cell, Picker, PopupPicker, XSwitch,
+    ButtonTabItem, XHeader, ViewBox, Loading, LoadingPlugin, ToastPlugin, ConfirmPlugin, Datetime, FlexboxItem,
+    Radio, XTextarea, Selector, Checker, CheckerItem
+} from 'vux'
+
+Vue.component('view-box', ViewBox);
+Vue.component('actionsheet', Actionsheet);
+Vue.component('x-input', XInput);
+Vue.component('x-button', XButton);
+Vue.component('grid', Grid);
+Vue.component('grid-item', GridItem);
+Vue.component('x-table', XTable);
+Vue.component('x-img', XImg);
+Vue.component('alert', Alert);
+Vue.component('toast', Toast);
+Vue.component('x-dialog', XDialog);
+Vue.component('button-tab', ButtonTab);
+Vue.component('button-tab-item', ButtonTabItem);
+Vue.component('tabbar', Tabbar);
+Vue.component('tabbar-item', TabbarItem);
+Vue.component('x-header', XHeader);
+Vue.component('toast', Toast);
+Vue.component('loading', Loading);
+Vue.component('loadMore', LoadMore);
+Vue.component('divider', Divider);
+Vue.component('confirm', Confirm);
+Vue.component('icon', Icon);
+Vue.component('x-circle', XCircle);
+Vue.component('cell', Cell);
+Vue.component('group', Group);
+Vue.component('datetime', Datetime);
+Vue.component('picker', Picker);
+Vue.component('popup-picker', PopupPicker);
+Vue.component('flexbox', Flexbox);
+Vue.component('flexbox-item', FlexboxItem);
+Vue.component('x-switch', XSwitch);
+Vue.component('radio', Radio);
+Vue.component('x-textarea', XTextarea);
+Vue.component('selector', Selector);
+Vue.component('checker', Checker);
+Vue.component('checker-item', CheckerItem);
+
+Vue.use(ToastPlugin);
 Vue.use(VueRouter);
 Vue.prototype.api_v1 = api_v1;
 Vue.prototype.$http = axios;

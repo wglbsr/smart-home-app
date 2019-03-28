@@ -27,6 +27,7 @@ const codeMessage = {
     504: "网关超时。"
 };
 
+//请求拦截器
 axios.interceptors.request.use(
     config => {
         const requestConfig = config;
@@ -41,9 +42,11 @@ axios.interceptors.request.use(
     }
 );
 
+//响应拦截器
 axios.interceptors.response.use(
     response => {
         if (!response || response.data.status == 401) {
+            // ToastPlugin.show({text: "请先登录", type: "warn", time: "2000"});
             window.location = "/";
         }
         let message = codeMessage[response.status];
@@ -53,10 +56,16 @@ axios.interceptors.response.use(
         return response;
     },
     error => {
-        let message = codeMessage[error.response.status];
-        if (error.response.data.errorMsg) {
-            message = error.response.data.errorMsg;
+        // ToastPlugin.show({text: "请求出错,请稍后重试!", type: "warn", time: "2000"});
+        if (error.response) {
+            let message = codeMessage[error.response.status];
+            if (error.response.data.errorMsg) {
+                message = error.response.data.errorMsg;
+            }
+        } else {
+            console.log(error.message);
         }
+
         return Promise.reject(error);
     }
 );

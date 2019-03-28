@@ -6,12 +6,12 @@
         <group class="login-group">
             <x-input v-model="username" type="text" class="login-input">
                 <img slot="label" class="login-input-img" style="display:block;"
-                     src="../assets/images/username.png" width="24"
+                     src="../assets/img/username.png" width="24"
                      height="24">
             </x-input>
             <x-input v-model="password" type="password" class="login-input">
                 <img slot="label" class="login-input-img" style="display:block;"
-                     src="../assets/images/jianpan.png" width="24"
+                     src="../assets/img/keyboard.png" width="24"
                      height="24">
             </x-input>
             <x-button @click.native="login" type="primary">登录</x-button>
@@ -20,8 +20,6 @@
 </template>
 
 <script>
-    import {XButton, XInput, XHeader, Group} from 'vux'
-
     export default {
         name: "Login",
         data() {
@@ -30,7 +28,6 @@
                 password: "",
             }
         },
-        components: {XButton, XInput, XHeader, Group},
         mounted: function () {
             let username = localStorage.getItem('username');
             let password = localStorage.getItem('password');
@@ -50,7 +47,7 @@
                     });
                     return;
                 }
-                this.$http.post("/login", {
+                this.$http.post("http://www.baidu.com", {
                     username: this.username,
                     password: this.password
                 }, {emulateJSON: true}).then(res => {
